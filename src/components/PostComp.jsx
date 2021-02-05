@@ -25,13 +25,32 @@ export default function PostComp(props) {
     }
   };
 
-  const statusType = () => {
-    let status = props.status.map((item) => item.img);
-    console.log(status);
-    if (status[0] !== undefined) {
-      return <img src={status[0]} alt="contact image" />;
+  const statusImage = () => {
+    let image = props.status.map((item) => item.img);
+    let text = props.status.map((item) => item.text);
+    if (image[0] !== undefined) {
+      return (
+        <a href="/image">
+          <img src={image[0]} alt="contact image" />
+        </a>
+      );
     } else {
-      return;
+      return (
+        <a style={{ display: "none" }} href="/image">
+          <img style={{ display: "none" }} src={image[0]} alt="contact image" />
+        </a>
+      );
+    }
+  };
+
+  const statusText = () => {
+    let text = props.status.map((item) => item.text);
+    let image = props.status.map((item) => item.img);
+    console.log(text);
+    if (image[0] !== undefined) {
+      return <p> {text} </p>;
+    } else {
+      return <p className="status-text"> {text} </p>;
     }
   };
 
@@ -63,12 +82,8 @@ export default function PostComp(props) {
           </div>
         </div>
       </div>
-      <div className="status">
-        <p>{props.status.map((item) => item.text)}</p>
-      </div>
-      <div className="status-img">
-        <a href="/image"> {statusType()}</a>
-      </div>
+      <div className="status">{statusText()}</div>
+      <div className="status-img">{statusImage()}</div>
       <div className="feedback">
         <div className="reactions">
           <p className="emojis">
