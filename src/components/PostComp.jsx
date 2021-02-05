@@ -29,7 +29,6 @@ export default function PostComp(props) {
   const statusText = () => {
     let text = props.status.map((item) => item.text);
     let image = props.status.map((item) => item.img);
-    console.log(text);
     if (image[0] !== undefined) {
       return <p> {text} </p>;
     } else {

@@ -15,6 +15,7 @@
   }
 
   .top-layer {
+    position: relative;
     display: flex;
     padding-bottom: 10px;
     border-bottom: 2px solid #ddd;
@@ -43,6 +44,26 @@
       font-size: 16px;
       margin-left: 10px;
       overflow: hidden;
+    }
+
+    button {
+      // position: absolute;
+      // right: -10px;
+      height: 40px;
+      border-radius: 999px;
+      padding: 8px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-size: 18px;
+      margin-left: 10px;
+      overflow: hidden;
+      color: #888;
+      transform: translate(-10px);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

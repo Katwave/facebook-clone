@@ -1146,6 +1146,7 @@ body .container .status-component {
 }
 
 body .container .status-component .top-layer {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1185,6 +1186,31 @@ body .container .status-component .top-layer input {
   font-size: 16px;
   margin-left: 10px;
   overflow: hidden;
+}
+
+body .container .status-component .top-layer button {
+  height: 40px;
+  border-radius: 999px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 18px;
+  margin-left: 10px;
+  overflow: hidden;
+  color: #888;
+  -webkit-transform: translate(-10px);
+          transform: translate(-10px);
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body .container .status-component .bottom-layer {

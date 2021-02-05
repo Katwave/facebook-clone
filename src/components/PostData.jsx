@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import PostComp from "./PostComp";
 import StatusComp from "./StatusComp";
 import StoryComp from "./StoryComp";
@@ -11,7 +12,10 @@ import img3 from "../img/3.jpg";
 import img4 from "../img/4.jpg";
 
 function PostData() {
-  const data = [
+  const [statusText, setStatusText] = useState("");
+  const [inputValue, setInputValue] = useState(false);
+
+  const [data, setData] = useState([
     {
       name: "Katlego",
       surname: "Me",
@@ -85,12 +89,56 @@ function PostData() {
         },
       ],
     },
-  ];
+  ]);
+
+  // Checking if the user is typing or not in order to display a button
+  const checkInputValue = (e) => {
+    if (e.target.value.trim() !== "") {
+      setInputValue(true);
+    } else {
+      setInputValue(false);
+    }
+  };
+
+  const addStatusInput = (e) => {
+    checkInputValue(e);
+    const value = e.target.value;
+    setStatusText(value);
+  };
+
+  const addStatusButton = (e) => {
+    data.unshift({
+      name: "Katlego",
+      img: img4,
+      surname: "Man",
+      status: [
+        {
+          text: statusText,
+          statusTime: "Just now",
+          numOfComments: "0",
+          numOfLikes: "0",
+          comments: [],
+        },
+      ],
+    });
+
+    console.log(data);
+
+    e.preventDefault();
+    setInputValue(false);
+    setStatusText("");
+  };
 
   return (
     <div className="card-container">
       <StoryComp data={data} />
-      <StatusComp name={data[0].name} />
+      <StatusComp
+        name={data[0].name}
+        addStatusInput={addStatusInput}
+        addStatusButton={addStatusButton}
+        statusText={statusText}
+        inputValue={inputValue}
+      />
       {data.map((person) => (
         <PostComp
           name={person.name}
