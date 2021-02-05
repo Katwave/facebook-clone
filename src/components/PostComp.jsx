@@ -18,9 +18,10 @@ export default function PostComp(props) {
 
   const commentStyle = () => {
     let comments = props.status.map((item) => item.comments);
-    if (comments.length > 0) {
+    if (comments[0].length >= 1) {
       return { borderBottom: "2px solid #ddd" };
     } else {
+      console.log("borderBottom hide");
       return { borderBottom: "none" };
     }
   };
