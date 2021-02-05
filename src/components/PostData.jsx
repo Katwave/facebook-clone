@@ -10,7 +10,7 @@ import img2 from "../img/2.jpg";
 import img3 from "../img/3.jpg";
 import img4 from "../img/4.jpg";
 
-function PostData(props) {
+function PostData() {
   const data = [
     {
       name: "Katlego",
@@ -25,12 +25,11 @@ function PostData(props) {
           comments: [
             {
               name: "Josh talks",
-              comment:
-                "This picture is amazing fam. where did you buy the cup?",
+              comment: "When are you coming back Katlego?",
             },
             {
               name: "Katlego Me",
-              comment: "Thanks man, I made it myself.",
+              comment: "I'll be back by the end of the year.",
             },
           ],
         },
