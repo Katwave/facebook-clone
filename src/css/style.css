@@ -1509,23 +1509,24 @@ body .container .card .status .status-text {
 
 body .container .card .status-img {
   width: 100%;
-}
-
-body .container .card .status-img img {
-  width: 100%;
   height: 500px;
 }
 
 @media screen and (max-height: 789px) {
-  body .container .card .status-img img {
+  body .container .card .status-img {
     height: 400px;
   }
 }
 
 @media screen and (max-height: 689px) {
-  body .container .card .status-img img {
+  body .container .card .status-img {
     height: 330px;
   }
+}
+
+body .container .card .status-img img {
+  width: 100%;
+  height: 100%;
 }
 
 body .container .card .feedback {
@@ -1541,7 +1542,7 @@ body .container .card .feedback {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 20px 10px 20px;
-  border-top: 1px solid #ddd;
+  border-top: 2px solid #ddd;
 }
 
 @media screen and (max-width: 600px) {

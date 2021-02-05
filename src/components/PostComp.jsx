@@ -25,24 +25,6 @@ export default function PostComp(props) {
     }
   };
 
-  const statusImage = () => {
-    let image = props.status.map((item) => item.img);
-    let text = props.status.map((item) => item.text);
-    if (image[0] !== undefined) {
-      return (
-        <a href="/image">
-          <img src={image[0]} alt="contact image" />
-        </a>
-      );
-    } else {
-      return (
-        <a style={{ display: "none" }} href="/image">
-          <img style={{ display: "none" }} src={image[0]} alt="contact image" />
-        </a>
-      );
-    }
-  };
-
   const statusText = () => {
     let text = props.status.map((item) => item.text);
     let image = props.status.map((item) => item.img);
@@ -51,6 +33,31 @@ export default function PostComp(props) {
       return <p> {text} </p>;
     } else {
       return <p className="status-text"> {text} </p>;
+    }
+  };
+
+  const statusImageContainer = () => {
+    let image = props.status.map((item) => item.img);
+    if (image[0] !== undefined) {
+      return (
+        <div className="status-img">
+          <a href="/image">
+            <img src={image[0]} alt="contact image" />
+          </a>
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ display: "none" }} className="status-img">
+          <a style={{ display: "none" }} href="/image">
+            <img
+              style={{ display: "none" }}
+              src={image[0]}
+              alt="contact image"
+            />
+          </a>
+        </div>
+      );
     }
   };
 
@@ -83,7 +90,7 @@ export default function PostComp(props) {
         </div>
       </div>
       <div className="status">{statusText()}</div>
-      <div className="status-img">{statusImage()}</div>
+      {statusImageContainer()}
       <div className="feedback">
         <div className="reactions">
           <p className="emojis">
