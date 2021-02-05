@@ -25,6 +25,16 @@ export default function PostComp(props) {
     }
   };
 
+  const statusType = () => {
+    let status = props.status.map((item) => item.img);
+    console.log(status);
+    if (status[0] !== undefined) {
+      return <img src={status[0]} alt="contact image" />;
+    } else {
+      return;
+    }
+  };
+
   return (
     <div className="card">
       <div className="profile">
@@ -57,10 +67,7 @@ export default function PostComp(props) {
         <p>{props.status.map((item) => item.text)}</p>
       </div>
       <div className="status-img">
-        <a href="/image">
-          {" "}
-          <img src={props.img} alt="contact image" />
-        </a>
+        <a href="/image"> {statusType()}</a>
       </div>
       <div className="feedback">
         <div className="reactions">
